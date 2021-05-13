@@ -1,0 +1,10 @@
+POST http://localhost:9999/
+Content-Type: application/json
+
+[{"Date": 1620919954, "Amount":  10000}, {"Date": 1620970000, "Amount":  10000}]
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.assert(response.contentType.mimeType === "application/json", "Expected 'application/json' but received '" + response.contentType.mimeType + "'");
+});
+%}

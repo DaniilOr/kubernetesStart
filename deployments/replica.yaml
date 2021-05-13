@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replica
+spec:
+  selector:
+    matchLabels:
+      app: replica
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: replica
+    spec:
+      containers:
+        - name: replica
+          image: docker.pkg.module github.com/DaniilOr/kubernetesStart:latest
+          ports:
+            - containerPort: 9999
+      imagePullSecrets:
+        - name: github-packages
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: replica
+  labels:
+    app: replica
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 9999
+  selector:
+    app: replica
+---
