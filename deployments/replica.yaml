@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: replica
-          image: docker.pkg.module github.com/DaniilOr/kubernetesStart:latest
+          image: docker.pkg.github.com/daniilor/kubernetesstart/replica:main
           ports:
             - containerPort: 9999
       imagePullSecrets:

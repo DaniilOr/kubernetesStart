@@ -23,7 +23,7 @@ func send() {
 func main(){
 	services := make(map[string]int64)
 	var wg sync.WaitGroup
-	for i:=0; i <=100; i++{
+	for i:=0; i <=1000; i++{
 		wg.Add(1)
 		go func(s map[string]int64){
 			defer wg.Done()
@@ -32,7 +32,7 @@ func main(){
 			if err != nil{
 				log.Fatalln(err)
 			}
-			resp, err := http.Post("http://0.0.0.0:9999/", "application/json",  bytes.NewBuffer(data))
+			resp, err := http.Post("http://10.110.182.76:9999/", "application/json",  bytes.NewBuffer(data))
 			if err != nil{
 				log.Fatalln(err)
 			}

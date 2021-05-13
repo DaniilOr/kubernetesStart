@@ -7,3 +7,5 @@ RUN go build -o replica ./cmd/replica
 FROM alpine:3.12
 COPY --from=build /app/replica /app/replica
 ENTRYPOINT ["/app/replica"]
+
+
