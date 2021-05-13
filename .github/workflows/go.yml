@@ -36,5 +36,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: daniilor/kubernetesstart
+          repository: daniilor/kubernetesstart/replica
           tag_with_ref: true 
